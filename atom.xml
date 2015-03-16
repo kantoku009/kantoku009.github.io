@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kantoku009.github.io/"/>
-  <updated>2015-03-16T14:58:39.000Z</updated>
+  <updated>2015-03-16T15:09:58.000Z</updated>
   <id>http://kantoku009.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://kantoku009.github.io/2015/03/16/DigitalFilter-Butterworth-Chebycheff/"/>
     <id>http://kantoku009.github.io/2015/03/16/DigitalFilter-Butterworth-Chebycheff/</id>
     <published>2015-03-16T14:43:25.000Z</published>
-    <updated>2015-03-16T14:58:39.000Z</updated>
+    <updated>2015-03-16T15:09:58.000Z</updated>
     <content type="html"><![CDATA[<h1 id="はじめに">はじめに</h1><p>C++言語にてデジタルフィルタを作成した。<br>WAVEファイルを読み込んで、デジタルフィルタに通すようにした。<br>作成したフィルタは以下。</p>
 <ul>
 <li>Butterworth</li>
@@ -77,7 +77,7 @@
 <li>カットオフ周波数： 400[Hz]</li>
 <li>1オクターブの減衰率： -48[db/oct]</li>
 </ul>
-<p><img src="./img/Butterworth_lowpass_48dB.png" alt="Butterworth Low-pass -48dB/oct"></p>
+<p><img src="https://raw.githubusercontent.com/kantoku009/DigitalFilter/master/img/Butterworth_lowpass_48dB.png" alt="Butterworth Low-pass -48dB/oct"></p>
 <h2 id="バンドパスフィルタ">バンドパスフィルタ</h2><h3 id="設定-1">設定</h3><p>Butterworthバンドパスフィルタの設定値は、以下のファイルから読み込む。  </p>
 <pre><code>.<span class="regexp">/config/</span>ButterworthBandPassFilter.conf
 </code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
@@ -86,7 +86,7 @@
 <li>カットオフ周波数： 2000[Hz]</li>
 <li>1オクターブの減衰率： -48[db/oct]</li>
 </ul>
-<p><img src="./img/Butterworth_bandpass_48dB.png" alt="Butterworth Band-pass -48dB/oct"></p>
+<p><img src="https://raw.githubusercontent.com/kantoku009/DigitalFilter/master/img/Butterworth_bandpass_48dB.png" alt="Butterworth Band-pass -48dB/oct"></p>
 <h2 id="ハイパスフィルタ">ハイパスフィルタ</h2><h3 id="設定-2">設定</h3><p>Butterworthハイパスフィルタの設定値は、以下のファイルから読み込む。  </p>
 <pre><code>.<span class="regexp">/config/</span>ButterworthHighPassFilter.conf
 </code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
@@ -94,7 +94,7 @@
 <li>カットオフ周波数： 2000[Hz]</li>
 <li>1オクターブの減衰率： -48[db/oct]</li>
 </ul>
-<p><img src="./img/Butterworth_highpass_48dB.png" alt="Butterworth High-pass -48dB/oct"></p>
+<p><img src="https://raw.githubusercontent.com/kantoku009/DigitalFilter/master/img/Butterworth_highpass_48dB.png" alt="Butterworth High-pass -48dB/oct"></p>
 <hr>
 <h1 id="Chebycheffフィルタ">Chebycheffフィルタ</h1><p>ホワイトノイズをButterworthフィルタに通した結果を周波数解析した。</p>
 <h2 id="ローパスフィルタ-1">ローパスフィルタ</h2><h3 id="設定-3">設定</h3><p>Chebycheffローパスフィルタの設定値は、以下のファイルから読み込む。  </p>
@@ -104,7 +104,7 @@
 <li>カットオフ周波数： 400[Hz]</li>
 <li>1オクターブの減衰率： -48[db/oct]</li>
 </ul>
-<p><img src="./img/Chebycheff_lowpass_48dB.png" alt="Chebycheff Low-pass -48dB/oct"></p>
+<p><img src="https://raw.githubusercontent.com/kantoku009/DigitalFilter/master/img/Chebycheff_lowpass_48dB.png" alt="Chebycheff Low-pass -48dB/oct"></p>
 <h2 id="バンドパスフィルタ-1">バンドパスフィルタ</h2><h3 id="設定-4">設定</h3><p>Chebycheffバンドパスフィルタの設定値は、以下のファイルから読み込む。  </p>
 <pre><code>.<span class="regexp">/config/</span>ChebycheffBandPassFilter.conf
 </code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
@@ -113,7 +113,7 @@
 <li>カットオフ周波数： 2000[Hz]</li>
 <li>1オクターブの減衰率： -48[db/oct]</li>
 </ul>
-<p><img src="./img/Chebycheff_bandpass_48dB.png" alt="Chebycheff Band-pass -48dB/oct"></p>
+<p><img src="https://raw.githubusercontent.com/kantoku009/DigitalFilter/master/img/Chebycheff_bandpass_48dB.png" alt="Chebycheff Band-pass -48dB/oct"></p>
 <h2 id="ハイパスフィルタ-1">ハイパスフィルタ</h2><h3 id="設定-5">設定</h3><p>Chebycheffハイパスフィルタの設定値は、以下のファイルから読み込む。  </p>
 <pre><code>.<span class="regexp">/config/</span>ChebycheffHighPassFilter.conf
 </code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
@@ -121,9 +121,9 @@
 <li>カットオフ周波数： 2000[Hz]</li>
 <li>1オクターブの減衰率： -48[db/oct]</li>
 </ul>
-<p><img src="./img/Chebycheff_highpass_48dB.png" alt="Chebycheff High-pass -48dB/oct"></p>
+<p><img src="https://raw.githubusercontent.com/kantoku009/DigitalFilter/master/img/Chebycheff_highpass_48dB.png" alt="Chebycheff High-pass -48dB/oct"></p>
 <hr>
-<h1 id="参考情報">参考情報</h1><h2 id="ホワイトノイズ">ホワイトノイズ</h2><p>ホワイトノイズを周波数解析した。<br>ホワイトノイズは全ての周波数に対して同じ強度となる性質を持っている。<br>その為、ホワイトノイズをフィルタに通すことによって、フィルタの性能を確認することができる。<br><img src="./img/WhiteNoise.png" alt="whitenoise"></p>
+<h1 id="参考情報">参考情報</h1><h2 id="ホワイトノイズ">ホワイトノイズ</h2><p>ホワイトノイズを周波数解析した。<br>ホワイトノイズは全ての周波数に対して同じ強度となる性質を持っている。<br>その為、ホワイトノイズをフィルタに通すことによって、フィルタの性能を確認することができる。<br><img src="https://raw.githubusercontent.com/kantoku009/DigitalFilter/master/img/WhiteNoise.png" alt="whitenoise"></p>
 <p>ホワイトノイズのファイルは、以下のサイトから借用した。<br><a href="http://www.audiocheck.net/testtones_whitenoise.php" target="_blank" rel="external">High Quality White Noise | Play &amp; Download .wav .mp3 Audio Files</a></p>
 <h2 id="周波数解析">周波数解析</h2><p>周波数解析には音声編集ソフトWavePadというアプリケーションを利用した。<br>以下のサイトからダウンローが可能。<br><a href="http://www.nch.com.au/wavepad/jp/index.html?gclid=CLbS3J3y9MMCFRWSvQodjjYAqw" target="_blank" rel="external">WavePad 音声編集ソフト</a></p>
 <h2 id="デジタルフィルタ">デジタルフィルタ</h2><h3 id="サイト">サイト</h3><p>デジタルフィルタに関しては以下サイトの<a href="http://www.sound.sie.dendai.ac.jp/dsp/Text/PDF/Chap3.pdf" target="_blank" rel="external">実用ディジタル信号処理講座 第3章 デジタルフィルタの基礎</a>を参考にした。<br><a href="http://www.sound.sie.dendai.ac.jp/index-j.html" target="_blank" rel="external">音響情報研究室</a></p>
