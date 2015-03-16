@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>プログラミングとか開発関係とかのメモ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="プログラミングとか開発関係とかのメモ">
+<meta property="og:url" content="http://kantoku009.github.io/archives/2015/03/index.html">
+<meta property="og:site_name" content="プログラミングとか開発関係とかのメモ">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="プログラミングとか開発関係とかのメモ">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="プログラミングとか開発関係とかのメモ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">プログラミングとか開発関係とかのメモ</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://kantoku009.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-DigitalFilter-Butterworth-Chebycheff" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/16/DigitalFilter-Butterworth-Chebycheff/" class="article-date">
+  <time datetime="2015-03-16T14:43:25.000Z" itemprop="datePublished">Mar 16 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/16/DigitalFilter-Butterworth-Chebycheff/">DigitalFilter-Butterworth-Chebycheff</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="はじめに">はじめに</h1><p>C++言語にてデジタルフィルタを作成した。<br>WAVEファイルを読み込んで、デジタルフィルタに通すようにした。<br>作成したフィルタは以下。</p>
+<ul>
+<li>Butterworth</li>
+<li>Chebycheff</li>
+</ul>
+<p>GitHubのリポジトリと全ソースコードのダウンロードは以下URLから行える。</p>
+<ul>
+<li><a href="https://github.com/kantoku009/DigitalFilter" target="_blank" rel="external">Githubのリポジトリ</a></li>
+<li><a href="https://github.com/kantoku009/DigitalFilter/archive/master.zip" target="_blank" rel="external">全ソースコードのダウンロード</a></li>
+</ul>
+<hr>
+<h1 id="UML">UML</h1><p>クラス図とシーケンス図を作成した。<br>以下からダウンロード可能。  </p>
+<ul>
+<li><a href="https://github.com/kantoku009/DigitalFilter/blob/master/DigitalFilter.asta?raw=true" target="_blank" rel="external">UML</a></li>
+</ul>
+<p>UMLの作成には無償のUMLモデリングツール<a href="http://astah.change-vision.com/ja/" target="_blank" rel="external">astah community</a>を使用している。  </p>
+<hr>
+<h1 id="ビルド">ビルド</h1><dl><br>    <dt><strong>コマンド</strong></dt><br>    <dd>Unix系のOSでビルドするのを想定している。</dd><br>    <dd>以下コマンドが必要。</dd><br></dl>
+
+<pre><code><span class="comment">g</span><span class="literal">+</span><span class="literal">+</span>
+<span class="comment">make</span>
+</code></pre><dl><br>    <dt><strong>make</strong></dt><br>    <dd>zipファイルを解凍</dd><br>    <dd>コマンドラインからカレントディレクトリの移動</dd><br>    <dd>makeを実行</dd><br></dl>
+
+<pre><code><span class="tag">%<span class="title">unzip</span></span> DigitalFilter-master.zip
+<span class="tag">%<span class="title">cd</span></span> ./source
+<span class="tag">%<span class="title">make</span></span>
+</code></pre><dl><br>    <dt><strong>実行ファイル生成</strong></dt><br>    <dd>以下の実行ファイルが出来上がる。</dd><br></dl>
+
+<pre><code>myfilter
+</code></pre><h1 id="使用方法">使用方法</h1><p>使用方法は以下を参照。  </p>
+<pre><code>%./<span class="tag">myfilter</span> <span class="attr_selector">[WAVEファイル名]</span> <span class="attr_selector">[フィルタ種類]</span>  
+</code></pre><p>フィルタ種類は以下の数値を指定する。</p>
+<ul>
+<li>0 : Butterworth ローパスフィルタ</li>
+<li>1 : Butterworth バンドパスフィルタ</li>
+<li>2 : Butterworth ハイパスフィルタ</li>
+<li>3 : Chebycheff ローパスフィルタ</li>
+<li>4 : Chebycheff バンドパスフィルタ</li>
+<li>5 : Chebycheff ハイパスフィルタ</li>
+</ul>
+<dl><br>    <dt><strong>設定ファイル</strong></dt><br>    <dd>各フィルタの設定値は以下のファイルに記載されている。</dd><br></dl>
+
+<pre><code>./config/ButterworthLowPassFilter<span class="class">.conf</span>
+./config/ButterworthBandPassFilter<span class="class">.conf</span>
+./config/ButterworthHighPassFilter<span class="class">.conf</span>
+./config/ChebycheffLowPassFilter<span class="class">.conf</span>
+./config/ChebycheffBandPassFilter<span class="class">.conf</span>
+./config/ChebycheffHighPassFilter.conf
+</code></pre><hr>
+<h1 id="Butterworthフィルタ">Butterworthフィルタ</h1><p>ホワイトノイズをButterworthフィルタに通した結果を周波数解析した。</p>
+<h2 id="ローパスフィルタ">ローパスフィルタ</h2><h3 id="設定">設定</h3><p>Butterworthローパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ButterworthLowPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 400[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Butterworth_lowpass_48dB.png" alt="Butterworth Low-pass -48dB/oct"></p>
+<h2 id="バンドパスフィルタ">バンドパスフィルタ</h2><h3 id="設定-1">設定</h3><p>Butterworthバンドパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ButterworthBandPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 400[Hz]</li>
+<li>カットオフ周波数： 2000[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Butterworth_bandpass_48dB.png" alt="Butterworth Band-pass -48dB/oct"></p>
+<h2 id="ハイパスフィルタ">ハイパスフィルタ</h2><h3 id="設定-2">設定</h3><p>Butterworthハイパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ButterworthHighPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 2000[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Butterworth_highpass_48dB.png" alt="Butterworth High-pass -48dB/oct"></p>
+<hr>
+<h1 id="Chebycheffフィルタ">Chebycheffフィルタ</h1><p>ホワイトノイズをButterworthフィルタに通した結果を周波数解析した。</p>
+<h2 id="ローパスフィルタ-1">ローパスフィルタ</h2><h3 id="設定-3">設定</h3><p>Chebycheffローパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ChebycheffLowPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 400[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Chebycheff_lowpass_48dB.png" alt="Chebycheff Low-pass -48dB/oct"></p>
+<h2 id="バンドパスフィルタ-1">バンドパスフィルタ</h2><h3 id="設定-4">設定</h3><p>Chebycheffバンドパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ChebycheffBandPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 400[Hz]</li>
+<li>カットオフ周波数： 2000[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Chebycheff_bandpass_48dB.png" alt="Chebycheff Band-pass -48dB/oct"></p>
+<h2 id="ハイパスフィルタ-1">ハイパスフィルタ</h2><h3 id="設定-5">設定</h3><p>Chebycheffハイパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ChebycheffHighPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 2000[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Chebycheff_highpass_48dB.png" alt="Chebycheff High-pass -48dB/oct"></p>
+<hr>
+<h1 id="参考情報">参考情報</h1><h2 id="ホワイトノイズ">ホワイトノイズ</h2><p>ホワイトノイズを周波数解析した。<br>ホワイトノイズは全ての周波数に対して同じ強度となる性質を持っている。<br>その為、ホワイトノイズをフィルタに通すことによって、フィルタの性能を確認することができる。<br><img src="./img/WhiteNoise.png" alt="whitenoise"></p>
+<p>ホワイトノイズのファイルは、以下のサイトから借用した。<br><a href="http://www.audiocheck.net/testtones_whitenoise.php" target="_blank" rel="external">High Quality White Noise | Play &amp; Download .wav .mp3 Audio Files</a></p>
+<h2 id="周波数解析">周波数解析</h2><p>周波数解析には音声編集ソフトWavePadというアプリケーションを利用した。<br>以下のサイトからダウンローが可能。<br><a href="http://www.nch.com.au/wavepad/jp/index.html?gclid=CLbS3J3y9MMCFRWSvQodjjYAqw" target="_blank" rel="external">WavePad 音声編集ソフト</a></p>
+<h2 id="デジタルフィルタ">デジタルフィルタ</h2><h3 id="サイト">サイト</h3><p>デジタルフィルタに関しては以下サイトの<a href="http://www.sound.sie.dendai.ac.jp/dsp/Text/PDF/Chap3.pdf" target="_blank" rel="external">実用ディジタル信号処理講座 第3章 デジタルフィルタの基礎</a>を参考にした。<br><a href="http://www.sound.sie.dendai.ac.jp/index-j.html" target="_blank" rel="external">音響情報研究室</a></p>
+<h3 id="書籍">書籍</h3><p>以下の書籍を参考にした。<br><a href="http://www.amazon.co.jp/dp/4501313501/" target="_blank" rel="external">「デジタルフィルタ (ビギナーズ)」  中村 尚五 (著)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kantoku009.github.io/2015/03/16/DigitalFilter-Butterworth-Chebycheff/" data-id="ci7bziuxm0000ra1pi6a7klhx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Butterworth/">Butterworth</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chebycheff/">Chebycheff</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DigitalFilter/">DigitalFilter</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Butterworth/">Butterworth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chebycheff/">Chebycheff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DesignPattern/">DesignPattern</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DigitalFilter/">DigitalFilter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LifeGame/">LifeGame</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ObserverPattern/">ObserverPattern</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TinyClock/">TinyClock</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Butterworth/" style="font-size: 10px;">Butterworth</a><a href="/tags/Chebycheff/" style="font-size: 10px;">Chebycheff</a><a href="/tags/DesignPattern/" style="font-size: 20px;">DesignPattern</a><a href="/tags/DigitalFilter/" style="font-size: 10px;">DigitalFilter</a><a href="/tags/LifeGame/" style="font-size: 10px;">LifeGame</a><a href="/tags/ObserverPattern/" style="font-size: 20px;">ObserverPattern</a><a href="/tags/Others/" style="font-size: 10px;">Others</a><a href="/tags/TinyClock/" style="font-size: 15px;">TinyClock</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/03/16/DigitalFilter-Butterworth-Chebycheff/">DigitalFilter-Butterworth-Chebycheff</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/10/LifeGame-cpp/">ライフゲーム（C++版）</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/24/TinyClock-GUI/">オブザーバーパターン（デザインパターン）適用例</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/17/TinyClock-console/">オブザーバーパターン（デザインパターン）適用例</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/04/Observer-Pattern/">オブザーバーパターン（デザインパターン）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 kantoku009<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

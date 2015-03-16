@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kantoku009.github.io/"/>
-  <updated>2015-02-10T11:08:03.000Z</updated>
+  <updated>2015-03-16T14:58:39.000Z</updated>
   <id>http://kantoku009.github.io/</id>
   
   <author>
@@ -13,6 +13,136 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[DigitalFilter-Butterworth-Chebycheff]]></title>
+    <link href="http://kantoku009.github.io/2015/03/16/DigitalFilter-Butterworth-Chebycheff/"/>
+    <id>http://kantoku009.github.io/2015/03/16/DigitalFilter-Butterworth-Chebycheff/</id>
+    <published>2015-03-16T14:43:25.000Z</published>
+    <updated>2015-03-16T14:58:39.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="はじめに">はじめに</h1><p>C++言語にてデジタルフィルタを作成した。<br>WAVEファイルを読み込んで、デジタルフィルタに通すようにした。<br>作成したフィルタは以下。</p>
+<ul>
+<li>Butterworth</li>
+<li>Chebycheff</li>
+</ul>
+<p>GitHubのリポジトリと全ソースコードのダウンロードは以下URLから行える。</p>
+<ul>
+<li><a href="https://github.com/kantoku009/DigitalFilter" target="_blank" rel="external">Githubのリポジトリ</a></li>
+<li><a href="https://github.com/kantoku009/DigitalFilter/archive/master.zip" target="_blank" rel="external">全ソースコードのダウンロード</a></li>
+</ul>
+<hr>
+<h1 id="UML">UML</h1><p>クラス図とシーケンス図を作成した。<br>以下からダウンロード可能。  </p>
+<ul>
+<li><a href="https://github.com/kantoku009/DigitalFilter/blob/master/DigitalFilter.asta?raw=true" target="_blank" rel="external">UML</a></li>
+</ul>
+<p>UMLの作成には無償のUMLモデリングツール<a href="http://astah.change-vision.com/ja/" target="_blank" rel="external">astah community</a>を使用している。  </p>
+<hr>
+<h1 id="ビルド">ビルド</h1><dl><br>    <dt><strong>コマンド</strong></dt><br>    <dd>Unix系のOSでビルドするのを想定している。</dd><br>    <dd>以下コマンドが必要。</dd><br></dl>
+
+<pre><code><span class="comment">g</span><span class="literal">+</span><span class="literal">+</span>
+<span class="comment">make</span>
+</code></pre><dl><br>    <dt><strong>make</strong></dt><br>    <dd>zipファイルを解凍</dd><br>    <dd>コマンドラインからカレントディレクトリの移動</dd><br>    <dd>makeを実行</dd><br></dl>
+
+<pre><code><span class="tag">%<span class="title">unzip</span></span> DigitalFilter-master.zip
+<span class="tag">%<span class="title">cd</span></span> ./source
+<span class="tag">%<span class="title">make</span></span>
+</code></pre><dl><br>    <dt><strong>実行ファイル生成</strong></dt><br>    <dd>以下の実行ファイルが出来上がる。</dd><br></dl>
+
+<pre><code>myfilter
+</code></pre><h1 id="使用方法">使用方法</h1><p>使用方法は以下を参照。  </p>
+<pre><code>%./<span class="tag">myfilter</span> <span class="attr_selector">[WAVEファイル名]</span> <span class="attr_selector">[フィルタ種類]</span>  
+</code></pre><p>フィルタ種類は以下の数値を指定する。</p>
+<ul>
+<li>0 : Butterworth ローパスフィルタ</li>
+<li>1 : Butterworth バンドパスフィルタ</li>
+<li>2 : Butterworth ハイパスフィルタ</li>
+<li>3 : Chebycheff ローパスフィルタ</li>
+<li>4 : Chebycheff バンドパスフィルタ</li>
+<li>5 : Chebycheff ハイパスフィルタ</li>
+</ul>
+<dl><br>    <dt><strong>設定ファイル</strong></dt><br>    <dd>各フィルタの設定値は以下のファイルに記載されている。</dd><br></dl>
+
+<pre><code>./config/ButterworthLowPassFilter<span class="class">.conf</span>
+./config/ButterworthBandPassFilter<span class="class">.conf</span>
+./config/ButterworthHighPassFilter<span class="class">.conf</span>
+./config/ChebycheffLowPassFilter<span class="class">.conf</span>
+./config/ChebycheffBandPassFilter<span class="class">.conf</span>
+./config/ChebycheffHighPassFilter.conf
+</code></pre><hr>
+<h1 id="Butterworthフィルタ">Butterworthフィルタ</h1><p>ホワイトノイズをButterworthフィルタに通した結果を周波数解析した。</p>
+<h2 id="ローパスフィルタ">ローパスフィルタ</h2><h3 id="設定">設定</h3><p>Butterworthローパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ButterworthLowPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 400[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Butterworth_lowpass_48dB.png" alt="Butterworth Low-pass -48dB/oct"></p>
+<h2 id="バンドパスフィルタ">バンドパスフィルタ</h2><h3 id="設定-1">設定</h3><p>Butterworthバンドパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ButterworthBandPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 400[Hz]</li>
+<li>カットオフ周波数： 2000[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Butterworth_bandpass_48dB.png" alt="Butterworth Band-pass -48dB/oct"></p>
+<h2 id="ハイパスフィルタ">ハイパスフィルタ</h2><h3 id="設定-2">設定</h3><p>Butterworthハイパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ButterworthHighPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 2000[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Butterworth_highpass_48dB.png" alt="Butterworth High-pass -48dB/oct"></p>
+<hr>
+<h1 id="Chebycheffフィルタ">Chebycheffフィルタ</h1><p>ホワイトノイズをButterworthフィルタに通した結果を周波数解析した。</p>
+<h2 id="ローパスフィルタ-1">ローパスフィルタ</h2><h3 id="設定-3">設定</h3><p>Chebycheffローパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ChebycheffLowPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 400[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Chebycheff_lowpass_48dB.png" alt="Chebycheff Low-pass -48dB/oct"></p>
+<h2 id="バンドパスフィルタ-1">バンドパスフィルタ</h2><h3 id="設定-4">設定</h3><p>Chebycheffバンドパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ChebycheffBandPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 400[Hz]</li>
+<li>カットオフ周波数： 2000[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Chebycheff_bandpass_48dB.png" alt="Chebycheff Band-pass -48dB/oct"></p>
+<h2 id="ハイパスフィルタ-1">ハイパスフィルタ</h2><h3 id="設定-5">設定</h3><p>Chebycheffハイパスフィルタの設定値は、以下のファイルから読み込む。  </p>
+<pre><code>.<span class="regexp">/config/</span>ChebycheffHighPassFilter.conf
+</code></pre><p>フィルタの設定は、デフォルトでは以下のようにした。</p>
+<ul>
+<li>カットオフ周波数： 2000[Hz]</li>
+<li>1オクターブの減衰率： -48[db/oct]</li>
+</ul>
+<p><img src="./img/Chebycheff_highpass_48dB.png" alt="Chebycheff High-pass -48dB/oct"></p>
+<hr>
+<h1 id="参考情報">参考情報</h1><h2 id="ホワイトノイズ">ホワイトノイズ</h2><p>ホワイトノイズを周波数解析した。<br>ホワイトノイズは全ての周波数に対して同じ強度となる性質を持っている。<br>その為、ホワイトノイズをフィルタに通すことによって、フィルタの性能を確認することができる。<br><img src="./img/WhiteNoise.png" alt="whitenoise"></p>
+<p>ホワイトノイズのファイルは、以下のサイトから借用した。<br><a href="http://www.audiocheck.net/testtones_whitenoise.php" target="_blank" rel="external">High Quality White Noise | Play &amp; Download .wav .mp3 Audio Files</a></p>
+<h2 id="周波数解析">周波数解析</h2><p>周波数解析には音声編集ソフトWavePadというアプリケーションを利用した。<br>以下のサイトからダウンローが可能。<br><a href="http://www.nch.com.au/wavepad/jp/index.html?gclid=CLbS3J3y9MMCFRWSvQodjjYAqw" target="_blank" rel="external">WavePad 音声編集ソフト</a></p>
+<h2 id="デジタルフィルタ">デジタルフィルタ</h2><h3 id="サイト">サイト</h3><p>デジタルフィルタに関しては以下サイトの<a href="http://www.sound.sie.dendai.ac.jp/dsp/Text/PDF/Chap3.pdf" target="_blank" rel="external">実用ディジタル信号処理講座 第3章 デジタルフィルタの基礎</a>を参考にした。<br><a href="http://www.sound.sie.dendai.ac.jp/index-j.html" target="_blank" rel="external">音響情報研究室</a></p>
+<h3 id="書籍">書籍</h3><p>以下の書籍を参考にした。<br><a href="http://www.amazon.co.jp/dp/4501313501/" target="_blank" rel="external">「デジタルフィルタ (ビギナーズ)」  中村 尚五 (著)</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="はじめに">はじめに</h1><p>C++言語にてデジタルフィルタを作成した。<br>WAVEファイルを読み込んで、デジタルフィルタに通すようにした。<br>作成したフィルタは以下。</p>
+<ul>
+<li>Butterworth</li>
+<li>Chebyc]]>
+    </summary>
+    
+      <category term="Butterworth" scheme="http://kantoku009.github.io/tags/Butterworth/"/>
+    
+      <category term="Chebycheff" scheme="http://kantoku009.github.io/tags/Chebycheff/"/>
+    
+      <category term="DigitalFilter" scheme="http://kantoku009.github.io/tags/DigitalFilter/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[ライフゲーム（C++版）]]></title>
