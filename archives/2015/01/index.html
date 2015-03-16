@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>プログラミングとか開発関係とかのメモ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="プログラミングとか開発関係とかのメモ">
+<meta property="og:url" content="http://kantoku009.github.io/archives/2015/01/index.html">
+<meta property="og:site_name" content="プログラミングとか開発関係とかのメモ">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="プログラミングとか開発関係とかのメモ">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="プログラミングとか開発関係とかのメモ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">プログラミングとか開発関係とかのメモ</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://kantoku009.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-TinyClock-GUI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/24/TinyClock-GUI/" class="article-date">
+  <time datetime="2015-01-23T15:07:33.000Z" itemprop="datePublished">Jan 24 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/24/TinyClock-GUI/">オブザーバーパターン（デザインパターン）適用例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="オブザーバーパターン適用例(TinyClock_GUI版)">オブザーバーパターン適用例(TinyClock GUI版)</h1><h2 id="概要">概要</h2><ul>
+<li>デザインパターンのオブザーバーパターンを時計アプリへの適用例をPythonコードで示す。  </li>
+<li>デジタル時計とアナログ時計を表示するアプリを作成した。  GUIで表示することとする。</li>
+<li>このアプリをTinyClockと呼ぶこととする。  </li>
+<li>TinyClockはMVC(Model-View-Controller)で作成することとする。（実際にはModel-View）  </li>
+</ul>
+<h2 id="実行">実行</h2><h3 id="実行方法">実行方法</h3><ul>
+<li>実行方法は、コマンドラインから以下を実行。  <ul>
+<li>%python TinyClockMain_gui.py  </li>
+</ul>
+</li>
+</ul>
+<h3 id="実行イメージ">実行イメージ</h3><ul>
+<li>TinyClockMain_guiを実行すると以下のように表示される。<br><img src="https://raw.githubusercontent.com/kantoku009/DesignPattern/master/ObserverPattern/ReadMe/run_image/GUI.png" alt="TinyClock(GUI版)実行イメージ"></li>
+</ul>
+<h2 id="TinyClock(GUI版)_Python全ソースコード">TinyClock(GUI版) Python全ソースコード</h2><p>以下URLに全ソースコードを保存している。<br><a href="https://github.com/kantoku009/DesignPattern/tree/master/ObserverPattern" target="_blank" rel="external">TinyClock(GUI版)</a></p>
+<h3 id="ディレクトリ構成">ディレクトリ構成</h3><p>ソースコードのディレクトリ構成を以下に示す。  </p>
+<p>.<br>└── sources                        // ソースコードファイルを保存したディレクトリ<br>    ├── Lib<br>    │   └──  Observer.py        // Observerパターン Pythonソースコード<br>    │<br>    ├── Model<br>    │   ├── Lib -&gt; ../Lib        // シンボリックリンク(１つ上のディレクトリのLib)<br>    │   └── TinyClockModel.py    // 時計本体部 Pythonソースコード<br>    │<br>    ├── View<br>    │   ├── GUI                    // GUI mainwindow.ui以外使用しない<br>    │   │   ├── GUI.pro            // Qt Creatorファイル<br>    │   │   ├── GUI.pro.user<br>    │   │   ├── main.cpp<br>    │   │   ├── mainwindow.cpp<br>    │   │   ├── mainwindow.h<br>    │   │   └── mainwindow.ui    // GUI メインウィンドウ XML（Qt Creatorで自動生成される）<br>    │   │<br>    │   ├── Lib -&gt; ../Lib        // シンボリックリンク(１つ上のディレクトリのLib)<br>    │   ├── TinyClockView.py    // 時計表示部（データ保持）<br>    │   ├── TinyClockViewGUI.py    // 時計表示部（GUI）<br>    │   └── mainwindow.py        // mainwindow.uiをPythonソースコードへ変換したもの<br>    │<br>    └── main_gui.py                // GUI用 main関数（本ファイルをpythonで実行するとデジタル時計とアナログ時計をGUI表示する）   </p>
+<h2 id="UML">UML</h2><p>クラス図とシーケンス図を以下に示す。  </p>
+<h3 id="クラス図">クラス図</h3><p><img src="https://raw.githubusercontent.com/kantoku009/DesignPattern/master/ObserverPattern/UML/img/20_TinyClock_GUI_%E3%82%AF%E3%83%A9%E3%82%B9%E5%9B%B3.png" alt="TinyuClock(GUI版)クラス図"></p>
+<h3 id="シーケンス図">シーケンス図</h3><p><img src="https://raw.githubusercontent.com/kantoku009/DesignPattern/master/ObserverPattern/UML/img/21_TinyClock_GUI_%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3.png" alt="TinyClock(GUI版)シーケンス図"></p>
+<h3 id="TinyClockModel_Pythonソースコード（一部抜粋）">TinyClockModel Pythonソースコード（一部抜粋）</h3><ul>
+<li>TinyClockModelクラスは、MVCモデルのModel部である。  </li>
+<li>TinyClockModelクラスは、Sujectクラスを継承する。  </li>
+<li>TinyClockModelクラスのset_timeメソッドで以下を行う。  <ul>
+<li>現在時刻取得  </li>
+<li>Subjectクラスから継承しているnotifyメソッドを呼ぶ  </li>
+</ul>
+</li>
+<li>notifyメソッドを呼ぶことによって、登録されている全Observerへ通知を行う。  </li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/Model/TinyClockModel.py" target="_blank" rel="external">TinyClockModel.py</a>を参照。  </li>
+</ul>
+<p>TinyClockModelクラスのソースコード一部抜粋を以下に示す。  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyClockModel</span><span class="params">(Subject)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  時計本体部 クラス.</span><br><span class="line">    @note   Subjectクラスを継承.</span><br><span class="line">            時刻を取得し, 表示部へ通知する.</span><br><span class="line">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># （中略） #</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_time</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  現在時刻を設定.</span><br><span class="line">        @return なし.</span><br><span class="line">        @note   現在時刻をobserverへ更新を通知.</span><br><span class="line">        """</span></span><br><span class="line">        self._now = datetime.datetime.today()</span><br><span class="line">        self.notify(self)</span><br></pre></td></tr></table></figure>
+<h3 id="TinyClockView_Pythonソースコード（一部抜粋）">TinyClockView Pythonソースコード（一部抜粋）</h3><ul>
+<li>TinyClockViewクラスは、MVCモデルのView部である。  </li>
+<li>TinyClockViewクラスは、Observerクラスを継承する。  </li>
+<li>TinyClockViewクラスは、表示データを保持するクラスである。  </li>
+<li>TinyClockViewクラスのupdateメソッドでは、以下を行う。<ul>
+<li>Subjectクラスからの通知を受け取る  </li>
+<li>表示用データの保存メソッドであるset_timeを呼ぶ  </li>
+</ul>
+</li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/View/TinyClockView.py" target="_blank" rel="external">TinyClockView.py</a>を参照。  </li>
+</ul>
+<p>TinyClockViewクラスのソースコード一部抜粋を以下に示す。  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyClockView</span><span class="params">(Observer)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  時計表示部（表示データ保持）.</span><br><span class="line">    @note   Observerクラスを継承.</span><br><span class="line">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># (中略) #</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self, modifier=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  Subjectから通知を受け取るメソッド.</span><br><span class="line">        @param  modifier    更新情報.</span><br><span class="line">        @note   Observerクラスのメソッドをオーバーライド.</span><br><span class="line">        """</span></span><br><span class="line">        self.set_time(modifier)</span><br></pre></td></tr></table></figure>
+<h2 id="TinyClockViewGUI_Pythonソースコード（一部抜粋）">TinyClockViewGUI Pythonソースコード（一部抜粋）</h2><h3 id="TinyDigitalClockView">TinyDigitalClockView</h3><ul>
+<li>TinyDigitalClockViewクラスは、デジタル時計のGUI表示部である。</li>
+<li>TinyDigitalClockViewクラスは、メンバー変数としてTinyClockViewクラスを持つ。  </li>
+<li>TinyDigitalClockViewクラスのdraw_viewメソッドは、デジタル時計を描画する。</li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/View/TinyClockViewGUI.py" target="_blank" rel="external">TinyClockViewGUI.py</a>を参照。 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyDigitalClockView</span><span class="params">(QtGui.QWidget)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  デジタル時計 GUI表示部 クラス.</span><br><span class="line">    @note   以下クラスを継承.</span><br><span class="line">                TinyClockView</span><br><span class="line">                QtGui.QWidget</span><br><span class="line">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, parent=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  初期化.</span><br><span class="line">        """</span></span><br><span class="line">        QtGui.QWidget.__init__(self)</span><br><span class="line">        self.m_TinyClockView = TinyClockView()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_view</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  デジタル時計を描画.</span><br><span class="line">        """</span></span><br><span class="line">        <span class="comment">#時間を設定.</span></span><br><span class="line">        theTime = QtCore.QTime(self.m_TinyClockView.hour,</span><br><span class="line">         						self.m_TinyClockView.min, </span><br><span class="line">         						self.m_TinyClockView.sec)</span><br><span class="line">        self.m_DateTimeEdit.setTime(theTime)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># （中略） #</span></span><br></pre></td></tr></table></figure>
+<h3 id="TinyAnalogClockView">TinyAnalogClockView</h3><ul>
+<li>TinyAnalogClockViewクラスは、アナログ時計のGUI表示部である。</li>
+<li>TinyAnalogClockViewクラスは、メンバー変数としてTinyClockViewクラスを持つ。</li>
+<li>TinyAnalogClockViewクラスのdraw_viewメソッドは、アナログ時計を描画する。</li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/View/TinyClockViewGUI.py" target="_blank" rel="external">TinyClockViewGUI.py</a>を参照。 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyAnalogClockView</span><span class="params">(QtGui.QWidget)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  アナログ時計 GUI表示部 クラス.</span><br><span class="line">    @note   以下クラスを継承.</span><br><span class="line">                TinyClockView</span><br><span class="line">                QtGui.QWidget</span><br><span class="line">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, parent=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  初期化.</span><br><span class="line">        """</span></span><br><span class="line">        <span class="comment">#スーパークラスを初期化.</span></span><br><span class="line">        QtGui.QWidget.__init__(self, parent=parent)</span><br><span class="line"></span><br><span class="line">        self.m_TinyClockView = TinyClockView()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_view</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  アナログ時計を描画.</span><br><span class="line">        """</span></span><br><span class="line">        <span class="comment">#クリア.</span></span><br><span class="line">        self._draw_clear()</span><br><span class="line">        <span class="comment">#長針を描画.</span></span><br><span class="line">        self._draw_hour_needle(self.m_TinyClockView.hour)</span><br><span class="line">        <span class="comment">#短針を描画.</span></span><br><span class="line">        self._draw_min_needle(self.m_TinyClockView.min)</span><br><span class="line">        <span class="comment">#秒針を描画.</span></span><br><span class="line">        self._draw_sec_needle(self.m_TinyClockView.sec)</span><br><span class="line">        <span class="comment">#日付を更新.</span></span><br><span class="line">        self._draw_date()</span><br><span class="line">        <span class="comment">#選択を解除. </span></span><br><span class="line">        self.m_DateEdit.setCurrentSectionIndex(self.m_DateEdit.NoSection)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#再描画指示（再描画イベントを発行）</span></span><br><span class="line">        self.repaint()</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># （中略） #</span></span><br></pre></td></tr></table></figure>
+<h3 id="mainwindow-py_Pythonソースコード">mainwindow.py Pythonソースコード</h3><ul>
+<li>GUI部分はQtを利用している。Qt Creatorを利用している。    </li>
+<li>Qt Creatorでフォームをデザインすると<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/View/GUI/mainwindow.ui" target="_blank" rel="external">mainwindow.ui</a>が作成される。  </li>
+<li>mainwindow.uiはXMLである。  </li>
+<li>mainwindow.uiから<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/View/mainwindow.py" target="_blank" rel="external">mainwindow.py</a>のPythonソースコードに変換した。  </li>
+<li>Mac OSXでは以下のコマンドで変換可能。  <ul>
+<li>%/Library/Python/2.7/site-packages/PyQt4/uic/pyuic.py -o mainwindow.py mainwindow.ui  </li>
+</ul>
+</li>
+</ul>
+<h3 id="TinyClockMain_gui_Pythonソースコード">TinyClockMain_gui Pythonソースコード</h3><ul>
+<li>Subjectクラスのattachメソッドで、時計本体部と表示部を接続している。  </li>
+<li>タイマーを設定し、以下を実行する。  <ul>
+<li>時刻設定</li>
+<li>デジタル時計再描画</li>
+<li>アナログ時計再描画</li>
+</ul>
+</li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/TinyClockMain_gui.py" target="_blank" rel="external">TinyClockMain_gui.py</a>を参照。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClockViewWidget</span><span class="params">(QtGui.QMainWindow, Ui_MainWindow)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  TinyClock GUI版を表示する為のウィジェット.</span><br><span class="line">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kw)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  初期化.</span><br><span class="line">        """</span></span><br><span class="line">        <span class="comment">#スーパークラスの初期化.</span></span><br><span class="line">        QtGui.QMainWindow.__init__(self, *args, **kw)</span><br><span class="line">        self.setupUi(self)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#時計本体部を生成.</span></span><br><span class="line">        self.ClockModel = TinyClockModel()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#デジタル時計表示部を生成.</span></span><br><span class="line">        self.DigitalClock = TinyDigitalClockView()</span><br><span class="line">        self.DigitalClock.setup_ui(self.dateTimeEdit)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#アナログ時計表示部を生成.</span></span><br><span class="line">        self.AnalogClock = TinyAnalogClockView(self.widget)</span><br><span class="line">        self.AnalogClock.setup_ui(self.dateEdit)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#時計 本体部 と 表示部（データ保持部） を接続</span></span><br><span class="line">        self.ClockModel.attach(self.DigitalClock.m_TinyClockView)</span><br><span class="line">        self.ClockModel.attach(self.AnalogClock.m_TinyClockView)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#タイマーを設定.</span></span><br><span class="line">        self.timer = QtCore.QTimer(parent=self)</span><br><span class="line">        self.timer.setInterval(<span class="number">1</span>*<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#タイマーを設定（時計本体部と接続. 1000msec毎に時刻を設定）.</span></span><br><span class="line">        self.timer.timeout.connect(self.ClockModel.set_time)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#タイマーを設定（デジタル時計時計表示部と接続. 1000msec毎に時刻を表示）.</span></span><br><span class="line">        self.timer.timeout.connect(self.DigitalClock.draw_view)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#タイマーを設定（アナログ時計時計表示部と接続. 1000msec毎に時刻を表示）.</span></span><br><span class="line">        self.timer.timeout.connect(self.AnalogClock.draw_view)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#タイマースタート.</span></span><br><span class="line">        self.timer.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  TinyClock GUI版 main処理.</span><br><span class="line">    """</span></span><br><span class="line">    app = QtGui.QApplication(sys.argv)</span><br><span class="line"></span><br><span class="line">    panel = ClockViewWidget()</span><br><span class="line"></span><br><span class="line">    main_window = QtGui.QMainWindow()</span><br><span class="line">    main_window.setGeometry(<span class="number">0</span>, <span class="number">0</span>, panel.width(), panel.height())</span><br><span class="line">    main_window.setWindowTitle(<span class="string">"TinyClock"</span>)</span><br><span class="line">    main_window.setCentralWidget(panel)</span><br><span class="line">    main_window.show()</span><br><span class="line"></span><br><span class="line">    app.exec_()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kantoku009.github.io/2015/01/24/TinyClock-GUI/" data-id="ci7byd85u000fh31p6w74r816" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DesignPattern/">DesignPattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ObserverPattern/">ObserverPattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyClock/">TinyClock</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-TinyClock-console" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/17/TinyClock-console/" class="article-date">
+  <time datetime="2015-01-17T14:30:45.000Z" itemprop="datePublished">Jan 17 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/17/TinyClock-console/">オブザーバーパターン（デザインパターン）適用例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="オブザーバーパターン適用例(TinyClock_Console版)">オブザーバーパターン適用例(TinyClock Console版)</h1><h2 id="概要">概要</h2><ul>
+<li>デザインパターンのオブザーバーパターンを時計アプリへの適用例をPythonコードで示す。  </li>
+<li>デジタル時計とアナログ時計を表示するアプリを作成した。  </li>
+<li>このアプリをTinyClockと呼ぶこととする。  </li>
+<li>TinyClockはMVC(Model-View-Controller)で作成することとする。（実際にはModel-View）  </li>
+</ul>
+<h2 id="実行">実行</h2><h3 id="実行方法">実行方法</h3><ul>
+<li>実行方法は、コマンドラインから以下を実行。  <ul>
+<li>%python TinyClockMain_console.py  </li>
+</ul>
+</li>
+<li>プログラムは無限ループになっているので、C-cで強制終了。  </li>
+</ul>
+<h3 id="実行イメージ">実行イメージ</h3><ul>
+<li>TinyClockMain_consoleを実行すると以下のように表示される。<br><img src="https://raw.githubusercontent.com/kantoku009/DesignPattern/master/ObserverPattern/ReadMe/run_image/console.png" alt="TinyClock(console版)実行イメージ"></li>
+</ul>
+<h2 id="TinyClock(console版)_Python全ソースコード">TinyClock(console版) Python全ソースコード</h2><p>以下URLに全ソースコードを保存している。<br><a href="https://github.com/kantoku009/DesignPattern/tree/master/ObserverPattern" target="_blank" rel="external">TinyClock(Console版)</a></p>
+<h3 id="ディレクトリ構成">ディレクトリ構成</h3><p>ソースコードのディレクトリ構成を以下に示す。  </p>
+<p>.<br>└── sources                            // ソースコードファイルを保存したディレクトリ<br>    ├── Lib<br>    │   └──  Observer.py            // Observerパターン Pythonソースコード<br>    │<br>    ├── Model<br>    │   ├── Lib -&gt; ../Lib            // シンボリックリンク(１つ上のディレクトリのLib)<br>    │   └── TinyClockModel.py        // 時計本体部 Pythonソースコード<br>    │<br>    ├── View<br>    │   │<br>    │   ├── Lib -&gt; ../Lib            // シンボリックリンク(１つ上のディレクトリのLib)<br>    │   └── TinyClockView.py        // 時計表示部（データ保持）<br>    │<br>    └── TinyClockMain_console.py    // コンソール用 main関数（本ファイルをpythonで実行するとコンソールに時刻を表示する）  </p>
+<h2 id="UML">UML</h2><p>クラス図とシーケンス図を以下に示す。  </p>
+<h3 id="クラス図">クラス図</h3><p><img src="https://raw.githubusercontent.com/kantoku009/DesignPattern/master/ObserverPattern/UML/img/10_TinyClock_console_%E3%82%AF%E3%83%A9%E3%82%B9%E5%9B%B3.png" alt="TinyuClock(console版)クラス図"></p>
+<h3 id="シーケンス図">シーケンス図</h3><p><img src="https://raw.githubusercontent.com/kantoku009/DesignPattern/master/ObserverPattern/UML/img/11_TinyClock_console_%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3.png" alt="TinyClock(console版)シーケンス図"></p>
+<h3 id="TinyClockModel_Pythonソースコード（一部抜粋）">TinyClockModel Pythonソースコード（一部抜粋）</h3><ul>
+<li>TinyClockModelクラスは、MVCモデルのModel部である。  </li>
+<li>TinyClockModelクラスは、Sujectクラスを継承する。  </li>
+<li>TinyClockModelクラスのset_timeメソッドで以下を行う。  <ul>
+<li>現在時刻取得  </li>
+<li>Subjectクラスから継承しているnotifyメソッドを呼ぶ  </li>
+</ul>
+</li>
+<li>notifyメソッドを呼ぶことによって、登録されている全Observerへ通知を行う。  </li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/Model/TinyClockModel.py" target="_blank" rel="external">TinyClockModel.py</a>を参照。  </li>
+</ul>
+<p>TinyClockModelクラスのソースコード一部抜粋を以下に示す。  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyClockModel</span><span class="params">(Subject)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  時計本体部 クラス.</span><br><span class="line">    @note   Subjectクラスを継承.</span><br><span class="line">            時刻を取得し, 表示部へ通知する.</span><br><span class="line">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># （中略） #</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_time</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  現在時刻を設定.</span><br><span class="line">        @return なし.</span><br><span class="line">        @note   現在時刻をobserverへ更新を通知.</span><br><span class="line">        """</span></span><br><span class="line">        self._now = datetime.datetime.today()</span><br><span class="line">        self.notify(self)</span><br></pre></td></tr></table></figure>
+<h3 id="TinyClockView_Pythonソースコード（一部抜粋）">TinyClockView Pythonソースコード（一部抜粋）</h3><ul>
+<li>TinyClockViewクラスは、MVCモデルのView部である。  </li>
+<li>TinyClockViewクラスは、Observerクラスを継承する。  </li>
+<li>TinyClockViewクラスは、表示データを保持するクラスである。  </li>
+<li>TinyClockViewクラスのupdateメソッドで以下を行う。<ul>
+<li>Subjectクラスからの通知を受け取る  </li>
+<li>表示用データの保存メソッドであるset_timeを呼ぶ  </li>
+</ul>
+</li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/View/TinyClockView.py" target="_blank" rel="external">TinyClockView.py</a>を参照。  </li>
+</ul>
+<p>TinyClockViewクラスのソースコード一部抜粋を以下に示す。  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyClockView</span><span class="params">(Observer)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  時計表示部（表示データ保持）.</span><br><span class="line">    @note   Observerクラスを継承.</span><br><span class="line">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># (中略) #</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self, modifier=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  Subjectから通知を受け取るメソッド.</span><br><span class="line">        @param  modifier    更新情報.</span><br><span class="line">        @note   Observerクラスのメソッドをオーバーライド.</span><br><span class="line">        """</span></span><br><span class="line">        self.set_time(modifier)</span><br></pre></td></tr></table></figure>
+<h3 id="TinyClockMain_console_Pythonソースコード">TinyClockMain_console Pythonソースコード</h3><ul>
+<li>TinyClockMain_consoleは、以下クラスをインスタンス化し、制御する。  <ul>
+<li>TinyClockModel  </li>
+<li>TinyClockView  </li>
+</ul>
+</li>
+<li>時計本体部(TinyClockModel)を以下でインスタンス化<ul>
+<li>theModel  = TinyClockModel()  </li>
+</ul>
+</li>
+<li>アナログ時計及びデジタル時計をインスタンス化している。<ul>
+<li>theAnalogClockView = TinyClockView()  </li>
+<li>theDigitalClockView = TinyClockView()  </li>
+</ul>
+</li>
+<li>Subjectクラスのattachメソッドで、時計本体部と表示部を接続している。  </li>
+<li>時計表示用にスレッドを生成し、各時計独立で表示するようにしている。  </li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/TinyClockMain_console.py" target="_blank" rel="external">TinyClockMain_console.py</a>を参照。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  TinyClock console版 main処理</span><br><span class="line">    @note   以下を別スレッドを生成して時刻を表示する.</span><br><span class="line">                アナログ時計</span><br><span class="line">                デジタル時計</span><br><span class="line">            スリープを使用してスレッドを切り替えている為, </span><br><span class="line">            スレッドの同期はとっていない.</span><br><span class="line">    """</span></span><br><span class="line">    <span class="comment">#時計本体部を生成.</span></span><br><span class="line">    theModel = TinyClockModel()</span><br><span class="line">    <span class="comment">#アナログ時計表示部を生成.</span></span><br><span class="line">    theAnalogClockView = TinyClockView()</span><br><span class="line">    <span class="comment">#デジタル時計表示部を生成.</span></span><br><span class="line">    theDigitalClockView = TinyClockView()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#時計 本体部と表示部接続.</span></span><br><span class="line">    theModel.attach(theAnalogClockView)</span><br><span class="line">    theModel.attach(theDigitalClockView)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#アナログ時計表示部のスレッドを生成.</span></span><br><span class="line">    theAnalogClockViewThread= threading.Thread(target=refresh_view, name=<span class="string">"AnalogClock"</span>, args=[theAnalogClockView])</span><br><span class="line">    theAnalogClockViewThread.setDaemon(<span class="keyword">True</span>)</span><br><span class="line">    theAnalogClockViewThread.start()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#デジタル時計表示部のスレッドを生成.</span></span><br><span class="line">    theDigitalClockViewThread = threading.Thread(target=refresh_view, name=<span class="string">"DigitalClock"</span>, args=[theDigitalClockView])</span><br><span class="line">    theDigitalClockViewThread.setDaemon(<span class="keyword">True</span>)</span><br><span class="line">    theDigitalClockViewThread.start()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        theModel.set_time()</span><br><span class="line">        <span class="comment">#1秒スリープ.</span></span><br><span class="line">        time.sleep(<span class="number">1.0</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kantoku009.github.io/2015/01/17/TinyClock-console/" data-id="ci7byd85q000ah31poc7xdqc1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DesignPattern/">DesignPattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ObserverPattern/">ObserverPattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyClock/">TinyClock</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Observer-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/04/Observer-Pattern/" class="article-date">
+  <time datetime="2015-01-04T12:15:57.000Z" itemprop="datePublished">Jan 4 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/Observer-Pattern/">オブザーバーパターン（デザインパターン）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="デザインパターンのオブザーバーパターンのメモ">デザインパターンのオブザーバーパターンのメモ</h1><ul>
+<li>オブザーバーパターンを使用すると疎結合なアプリケーションを作成可能。<br>　(GUIのアプリケーションでよく使用されている。)</li>
+<li>オブザーバーパターンは、「通知者」から「観測者」に状態を通知する。</li>
+<li>オブザーバーパターンのメリットとしては、観測者は通知を受け取った場合に動作する。<br>　(ポーリングしなくともよい。)</li>
+<li>通知者をSubjectクラス、観測者をObserverクラスとする。</li>
+<li>Subjectクラスは、Observerクラスを持つ。</li>
+<li>Subjectクラスは、Observerクラスを複数持ってもよい。この場合、SubjectクラスはすべてのObserverクラスへ通知を行う。</li>
+</ul>
+<hr>
+<h2 id="Observerパターンのクラス図">Observerパターンのクラス図</h2><p><img src="https://raw.githubusercontent.com/kantoku009/DesignPattern/master/ObserverPattern/UML/img/00_ObserverPattern_%E3%82%AF%E3%83%A9%E3%82%B9%E5%9B%B3.png" alt="ObserverPattern クラス図"></p>
+<h2 id="ObserverクラスのPythonソースコード">ObserverクラスのPythonソースコード</h2><ul>
+<li>Observerクラスは、Subjectクラスから通知を受け取る。</li>
+<li>抽象クラスの為、インスタンスは作成しないこと。</li>
+<li>Subjectクラスからの通知は、updateメソッドで受け取る。</li>
+<li>updateメソッドは、継承したクラスでオーバーライドする。</li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/Lib/Observer.py" target="_blank" rel="external">Observer.py</a>を参照。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  オブザーバークラス.</span><br><span class="line">            更新があった場合, Subjectから通知を受け取るクラス.</span><br><span class="line">    @note   抽象クラス. インスタンスは作成しないこと.    </span><br><span class="line">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self, modifier=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  Subjetから通知を受け取るメソッド.</span><br><span class="line">        @param  modifier    更新情報.</span><br><span class="line">        @note   本メソッドは継承したクラスでオーバーライドすること.</span><br><span class="line">        """</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br></pre></td></tr></table></figure>
+<h2 id="SubjectクラスのPythonソースコード(一部抜粋)">SubjectクラスのPythonソースコード(一部抜粋)</h2><ul>
+<li>Subjectクラスは、登録されているObserverクラス全てに通知をする。</li>
+<li>Observerクラスを登録するには、attachメソッドを使用する。</li>
+<li>Observerクラスに通知するには、notifyメソッドを使用する。</li>
+<li>ソースコードの詳細は<a href="https://github.com/kantoku009/DesignPattern/blob/master/ObserverPattern/sources/Lib/Observer.py" target="_blank" rel="external">Observer.py</a>を参照。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subject</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    @brief  サブジェクトクラス.</span><br><span class="line">            更新があった場合, Observerへ通知するクラス.</span><br><span class="line">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  初期化.</span><br><span class="line">        @param  メンバー変数 self._observerList 登録されたオブザーバーリスト.   </span><br><span class="line">        """</span></span><br><span class="line">        self._observerList = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">attach</span><span class="params">(self, observer)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief    Observerを登録する.</span><br><span class="line">        @param    observer 登録するオブザーバー.</span><br><span class="line">        @return   なし.</span><br><span class="line">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> observer <span class="keyword">in</span> self._observerList:</span><br><span class="line">            self._observerList.append(observer)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">notify</span><span class="params">(self, modifier=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        @brief  Observerへ更新を通知するメソッド.</span><br><span class="line">        @param  modifier    更新情報.</span><br><span class="line">        """</span></span><br><span class="line">        <span class="keyword">for</span> observer <span class="keyword">in</span> self._observerList:</span><br><span class="line">            <span class="keyword">if</span> observer != modifier:</span><br><span class="line">                observer.update(self)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="参考文献">参考文献</h2><p><a href="http://www.techscore.com/tech/DesignPattern/Observer.html/" target="_blank" rel="external">17．Observer パターン | TECHSCORE(テックスコア)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kantoku009.github.io/2015/01/04/Observer-Pattern/" data-id="ci7byd866000jh31prt0u1ylm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DesignPattern/">DesignPattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ObserverPattern/">ObserverPattern</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/04/first-blog/" class="article-date">
+  <time datetime="2015-01-03T16:33:39.000Z" itemprop="datePublished">Jan 4 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/first-blog/">first blog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="初めてのブログ">初めてのブログ</h1><h2 id="C言語_ソースコード">C言語 ソースコード</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello, World!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kantoku009.github.io/2015/01/04/first-blog/" data-id="ci7byd85n0007h31p1tt2be6u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Others/">Others</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DesignPattern/">DesignPattern</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LifeGame/">LifeGame</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ObserverPattern/">ObserverPattern</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TinyClock/">TinyClock</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DesignPattern/" style="font-size: 20px;">DesignPattern</a><a href="/tags/LifeGame/" style="font-size: 10px;">LifeGame</a><a href="/tags/ObserverPattern/" style="font-size: 20px;">ObserverPattern</a><a href="/tags/Others/" style="font-size: 10px;">Others</a><a href="/tags/TinyClock/" style="font-size: 15px;">TinyClock</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/10/LifeGame-cpp/">ライフゲーム（C++版）</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/24/TinyClock-GUI/">オブザーバーパターン（デザインパターン）適用例</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/17/TinyClock-console/">オブザーバーパターン（デザインパターン）適用例</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/04/Observer-Pattern/">オブザーバーパターン（デザインパターン）</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/04/first-blog/">first blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 kantoku009<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
