@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://kantoku009.github.io/"/>
-  <updated>2015-03-16T15:09:58.000Z</updated>
+  <updated>2015-03-17T15:13:08.000Z</updated>
   <id>http://kantoku009.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://kantoku009.github.io/2015/03/16/DigitalFilter-Butterworth-Chebycheff/"/>
     <id>http://kantoku009.github.io/2015/03/16/DigitalFilter-Butterworth-Chebycheff/</id>
     <published>2015-03-16T14:43:25.000Z</published>
-    <updated>2015-03-16T15:09:58.000Z</updated>
+    <updated>2015-03-17T15:13:08.000Z</updated>
     <content type="html"><![CDATA[<h1 id="はじめに">はじめに</h1><p>C++言語にてデジタルフィルタを作成した。<br>WAVEファイルを読み込んで、デジタルフィルタに通すようにした。<br>作成したフィルタは以下。</p>
 <ul>
 <li>Butterworth</li>
@@ -36,6 +36,10 @@
 <li><a href="https://github.com/kantoku009/DigitalFilter/blob/master/DigitalFilter.asta?raw=true" target="_blank" rel="external">UML</a></li>
 </ul>
 <p>UMLの作成には無償のUMLモデリングツール<a href="http://astah.change-vision.com/ja/" target="_blank" rel="external">astah community</a>を使用している。  </p>
+<p>クラスやメソッドの説明はdoxygenで生成した。  </p>
+<ul>
+<li><a href="https://github.com/kantoku009/DigitalFilter/blob/master/html/index.html" target="_blank" rel="external">クラスやメソッドの説明</a></li>
+</ul>
 <hr>
 <h1 id="ビルド">ビルド</h1><dl><br>    <dt><strong>コマンド</strong></dt><br>    <dd>Unix系のOSでビルドするのを想定している。</dd><br>    <dd>以下コマンドが必要。</dd><br></dl>
 
